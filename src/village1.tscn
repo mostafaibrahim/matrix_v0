@@ -1,0 +1,75 @@
+[gd_scene load_steps=5 format=3 uid="uid://c2x7vob716fwm"]
+
+[ext_resource type="Texture2D" uid="uid://bysr1o85ipx3" path="res://villagemap.png" id="1_22p0c"]
+[ext_resource type="PackedScene" uid="uid://ct7veakwiei3h" path="res://character.tscn" id="2_kmery"]
+[ext_resource type="Script" path="res://LineEdit.gd" id="3_e4rlp"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_rct85"]
+vertices = PackedVector2Array(1954, 1963, 1664, 1990, -219, 1966, -149, 1959, 1437, 2012, 1136, 2040, 894, 2063, 575, 2193, -143, 1438, -114, 1469, -106, 1480, -138, 1498, -324, 1476, -280, 1465, 317, 2306, 87, 2252, -96, 2291, -286, 2273, -351, 2029, -58, 1821, -135, 1723, -120, 1578, -84, 1525, 53, 1756, 32, 1772, -27, 1805, -62, 1214, -111, 1233, -116, 1105, -36, 1080, -737, 2324, -617, 1769, -395, 1905, 719, 999, 703, 958, 805, 948, 394, 1023, 382, 970, 657, 966, -247, 1578, -245, 1581, -389, 1643, -416, 1589, -7, 1198, -47, 1215, -55, 1262, -41, 1251, 769, 1301, 778, 1316, 747, 1329, 520, 1402, 84, 1168, 54, 1181, 21, 1072, 123, 1049, 150, 1143, 109, 1164, 2453, 556, 2443, 998, 815, 698, 812, 647, 812, 813, 806, 866, 86, 1007, -72, 1036, -76, 981, -16, 982, 78, 929, -15, 845, 73, 897, -362, 1274, -170, 1258, -171, 1313, -294, 1338, 553, 1497, 787, 1411, 699, 1444, 661, 1458, 420, 1600, 525, 1556, 674, 1498, 717, 1486, 2433, 1455, 2423, 1918, 274, 1724, 261, 1690, 119, 1754, -44, 1474, 51, 1430, 214, 1691, 182, 1717, 147, 1748, 205, 1762, 168, 1790, 10, 1259, -103, 1303, -110, 1279, 56, 1245, 95, 1213, 206, 1189, 39, 1383, -77, 1428, -99, 1353, 10, 1311, 44, 1363, 128, 1197, 340, 1578, 334, 1585, 236, 1643, 92, 1403, 199, 1349, 291, 1486, 680, 1031, 690, 1075, 428, 1162, 407, 1082, 669, 1007, -163, 1212, -324, 1222, -324, 1185, -168, 1075, -156, 1207, 436, 1436, 475, 1419, -294, 1381, -140, 1357, -137, 1388, -287, 1420, -328, 1427, 129, 1298, 141, 1323, 73, 1280, 760, 1143, 2438, 1264, 833, 1336, 769, 1174, 725, 1024, 749, 1262, 459, 1374, 443, 1325, 729, 1186, 778, 651, 778, 715, 313, 715, 315, 666, 583, -622, 1858, -651, 2479, -664, 2472, -296, 2465, -10, 1529, -643, 761, 861, 756, 914, 337, 920, 338, 866, 341, 820, 340, 765, 768, 765, 767, 808, -422, 1713, -331, 1672, -268, 1820, -377, 1825, -109, 847, -123, 950, -469, 1188, -469, 1154, -110, 730, 268, 666, -687, -44, -696, -277, -708, -592, -206, -604, 164, -612, 408, 1224, 699, 1113, 716, 1159, 432, 1295, 347, 1035, 367, 1092, -236, 1763, -280, 1651, 49, 1818, -3, 1850, 295, 824, 293, 866, -113, 1468, 839, 1437, -69, 851, -75, 937, 112, 728, 110, 796, -57, 798, -65, 729, -461, 1238, -365, 1235, -463, 1275, 80, 1799, 99, 1826, -155, 1781, -103, 1844, -168, 1905, 116, 918, 151, 842, 262, 756, 296, 759, 153, 995, 124, 995, 183, 1241, 193, 1263, 211, 1174, 69, 845, 111, 891, 2459, 294, 115, 842, 191, 1319, 199, 1316, 264, 1425, 345, 1457, 302, 1394, -438, 1547, -444, 1507, -138, 1523, -467, 1578, -457, 1608, -504, 1473, -442, 1658, -493, 1681, -623, 1615, -628, 1475, 806, 1352, 390, 1315, 400, 1341, 290, 959, 390, 1177, 346, 1199, -234, 1935, -321, 1956, -365, 1869, 334, 967, 1187, -635, 916, -629, -676, 242, -666, 494, -655, 793, -425, 1855, -120, 1047, -126, 1066, -145, 1075, -506, 1279, -505, 1158, -643, 1088, -636, 1282, 150, 728)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(2, 1, 4, 5), PackedInt32Array(2, 5, 6), PackedInt32Array(2, 6, 7), PackedInt32Array(8, 9, 10, 11, 12, 13), PackedInt32Array(2, 7, 14, 15), PackedInt32Array(2, 15, 16, 17, 18), PackedInt32Array(19, 20, 21, 22, 23, 24, 25), PackedInt32Array(26, 27, 28, 29), PackedInt32Array(18, 17, 30, 31, 32), PackedInt32Array(33, 34, 35), PackedInt32Array(36, 37, 38), PackedInt32Array(39, 40, 41, 42, 12), PackedInt32Array(26, 29, 43, 44), PackedInt32Array(45, 26, 44, 46), PackedInt32Array(47, 48, 49, 50), PackedInt32Array(51, 52, 53, 54), PackedInt32Array(51, 54, 55, 56), PackedInt32Array(57, 58, 59, 60), PackedInt32Array(61, 59, 58), PackedInt32Array(62, 61, 58, 35), PackedInt32Array(63, 64, 65, 66), PackedInt32Array(67, 63, 66, 68, 69), PackedInt32Array(70, 71, 72, 73), PackedInt32Array(74, 50, 49, 75, 76, 77), PackedInt32Array(78, 79, 80, 81, 82, 83, 0, 84, 85), PackedInt32Array(86, 87, 88, 89, 90), PackedInt32Array(91, 86, 90), PackedInt32Array(91, 90, 92, 93), PackedInt32Array(94, 95, 96, 45), PackedInt32Array(97, 94, 45, 46, 98, 99), PackedInt32Array(100, 101, 102, 103, 104), PackedInt32Array(98, 51, 56, 105), PackedInt32Array(106, 107, 108, 109, 110, 111), PackedInt32Array(112, 113, 114, 115, 116), PackedInt32Array(117, 118, 119, 120, 121), PackedInt32Array(122, 123, 79, 78), PackedInt32Array(124, 125, 126, 127, 128), PackedInt32Array(129, 130, 104, 103, 131), PackedInt32Array(132, 35, 58, 133, 134, 135), PackedInt32Array(35, 132, 136, 33), PackedInt32Array(33, 136, 112, 116), PackedInt32Array(137, 138, 139, 140), PackedInt32Array(141, 142, 143, 144, 145), PackedInt32Array(146, 147, 148, 149, 60, 150), PackedInt32Array(151, 152, 153, 154, 155), PackedInt32Array(155, 156, 157, 158, 151), PackedInt32Array(159, 160, 161, 162), PackedInt32Array(163, 164, 120, 119, 165, 166, 167), PackedInt32Array(168, 169, 170, 171, 172, 173, 144), PackedInt32Array(174, 175, 176, 177), PackedInt32Array(178, 36, 38, 116, 115, 179), PackedInt32Array(20, 180, 181, 21), PackedInt32Array(25, 24, 182, 183), PackedInt32Array(158, 61, 62, 151), PackedInt32Array(184, 155, 154, 185), PackedInt32Array(8, 186, 9), PackedInt32Array(13, 12, 128, 127), PackedInt32Array(187, 133, 82, 81), PackedInt32Array(163, 188, 189, 164), PackedInt32Array(80, 77, 76, 81), PackedInt32Array(190, 191, 192, 193), PackedInt32Array(194, 195, 70, 196), PackedInt32Array(183, 182, 197, 198, 3), PackedInt32Array(199, 200, 201, 161), PackedInt32Array(202, 203, 204, 205, 184, 185, 206, 207), PackedInt32Array(208, 209, 129, 131), PackedInt32Array(131, 103, 94, 97), PackedInt32Array(99, 98, 105, 210), PackedInt32Array(68, 211, 69), PackedInt32Array(202, 67, 69, 212), PackedInt32Array(213, 57, 60, 149), PackedInt32Array(212, 214, 203, 202), PackedInt32Array(110, 215, 216, 217, 111), PackedInt32Array(218, 111, 217, 219), PackedInt32Array(220, 221, 12, 42), PackedInt32Array(12, 11, 222, 39), PackedInt32Array(223, 220, 42, 224), PackedInt32Array(225, 223, 224, 226, 227, 228, 229), PackedInt32Array(187, 230, 134, 133), PackedInt32Array(176, 132, 135, 140), PackedInt32Array(177, 176, 140, 139), PackedInt32Array(231, 177, 139, 232), PackedInt32Array(233, 178, 179, 234, 235, 210, 206), PackedInt32Array(236, 237, 238, 201), PackedInt32Array(233, 239, 178), PackedInt32Array(240, 150, 60), PackedInt32Array(241, 240, 60), PackedInt32Array(145, 241, 60, 141), PackedInt32Array(173, 145, 144), PackedInt32Array(242, 169, 168, 243), PackedInt32Array(244, 243, 168, 167), PackedInt32Array(32, 31, 228, 245), PackedInt32Array(246, 247, 248, 120, 164), PackedInt32Array(249, 196, 70, 73, 124, 128, 225, 229), PackedInt32Array(219, 99, 210, 235, 231), PackedInt32Array(167, 166, 250, 251, 244), PackedInt32Array(245, 162, 161, 201, 238), PackedInt32Array(92, 84, 0, 93), PackedInt32Array(198, 93, 0, 3), PackedInt32Array(201, 3, 2, 236), PackedInt32Array(245, 238, 32), PackedInt32Array(227, 245, 228), PackedInt32Array(249, 229, 252, 251, 250), PackedInt32Array(193, 167, 168), PackedInt32Array(190, 193, 168), PackedInt32Array(253, 190, 168), PackedInt32Array(253, 168, 204, 203), PackedInt32Array(206, 185, 233), PackedInt32Array(219, 231, 232, 122, 218), PackedInt32Array(78, 218, 122)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(2490, -675, 2481.69, -295.621, 2475.44, -10.2439, 2468.77, 294.464, 2463.05, 555.755, 2453.36, 998.033, 2447.54, 1264.08, 2443.37, 1454.57, 2433, 1928, 1954.87, 1973.11, 1665.48, 2000.41, 1437.84, 2021.88, 1137.24, 2050.24, 896, 2073, 579, 2202, 318, 2317, 87, 2262, -95, 2302, -286, 2283, -750, 2336, -626.976, 1768.09, -632.919, 1615.02, -638.354, 1475.05, -645.842, 1282.19, -653.396, 1087.63, -664.831, 793.129, -676.459, 493.634, -686.234, 241.902, -697.349, -44.3693, -706.392, -277.288, -719, -602, -206.235, -613.664, 164.282, -622.093, 582.882, -631.616, 916.013, -639.194, 1186.79, -645.354, 1529.33, -653.146, 1857.59, -660.614)])
+source_geometry_group_name = &"navigation_polygon_source_group"
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Villagemap" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(1495, 577)
+scale = Vector2(3.44133, 3.17381)
+texture = ExtResource("1_22p0c")
+metadata/_edit_lock_ = true
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavigationPolygon_rct85")
+
+[node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="NavigationRegion2D"]
+radius = 2.0
+vertices = PackedVector2Array(345, 436, 593, 161, 626, 213, 393, 574)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="NavigationRegion2D"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="NavigationRegion2D/StaticBody2D"]
+position = Vector2(424, -339)
+polygon = PackedVector2Array(-117, 1089, -119, 1152, -93, 1150, -94, 1095, 355, 1094, 353, 1138, 378, 1141, 381, 1037, 379, 997, 364, 999, 365, 1064, -121, 1065, -119, 1015, -147, 1015, -151, 1086)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="NavigationRegion2D/StaticBody2D"]
+polygon = PackedVector2Array(303, 876, 328, 876, 327, 931, 766, 924, 770, 872, 796, 875, 795, 939, 690, 950, 705, 991, 676, 996, 665, 956, 370, 961, 382, 1016, 355, 1023, 343, 959, 300, 951)
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="NavigationRegion2D/StaticBody2D"]
+polygon = PackedVector2Array(379, 1099, 400, 1094, 421, 1175, 702, 1082, 692, 1039, 718, 1035, 748, 1137, 722, 1146, 705, 1101, 396, 1219, 420, 1290, 396, 1301, 359, 1204, 403, 1183)
+
+[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="NavigationRegion2D/StaticBody2D"]
+polygon = PackedVector2Array(741, 1193, 763, 1186, 821, 1332, 795, 1348, 826, 1431, 722, 1473, 712, 1450, 801, 1417, 761, 1334, 793, 1321, 774, 1289, 508, 1397, 548, 1510, 655, 1471, 662, 1492, 531, 1543, 481, 1406, 442, 1423, 413, 1347, 437, 1338, 454, 1387, 762, 1268)
+
+[node name="CollisionPolygon2D5" type="CollisionPolygon2D" parent="NavigationRegion2D/StaticBody2D"]
+polygon = PackedVector2Array(250, 1685, 407, 1596, 341, 1471, 305, 1490, 352, 1579, 341, 1594, 233, 1658, 78, 1399, 187, 1344, 180, 1314, 204, 1304, 267, 1410, 290, 1391, 201, 1202, 70, 1251, 78, 1268, 189, 1230, 206, 1268, 142, 1302, 155, 1329, 53, 1370, 49, 1391, -85, 1442, -112, 1348, 0, 1304, 0, 1274, -110, 1317, -123, 1274, -66, 1255, -70, 1228, -121, 1247, -127, 1098, -29, 1067, 4, 1204, -36, 1221, -33, 1238, 83, 1206, 77, 1182, 48, 1195, 8, 1065, 131, 1037, 163, 1148, 123, 1168, 133, 1185, 198, 1167, 146, 1005, 115, 1005, 107, 931, 89, 936, 97, 1016, -82, 1049, -87, 971, -26, 972, -25, 836, 79, 835, 82, 885, 102, 882, 106, 832, 141, 832, 140, 738, 122, 738, 120, 806, -67, 809, -74, 739, -100, 740, -99, 838, -59, 842, -66, 946, -113, 958, -110, 1047, -119, 1074, -143, 1085, -157, 1085, -146, 1212, -160, 1222, -334, 1233, -334, 1195, -479, 1199, -479, 1165, -495, 1167, -496, 1268, -473, 1266, -471, 1229, -356, 1225, -353, 1263, -160, 1248, -162, 1322, -284, 1346, -284, 1369, -132, 1346, -126, 1397, -276, 1428, -272, 1453, -140, 1428, -106, 1463, -92, 1484, -128, 1504, -128, 1530, -234, 1583, -222, 1609, -239, 1590, -394, 1656, -421, 1602, -445, 1613, -430, 1664, -480, 1686, -420, 1840, -389, 1821, -435, 1708, -326, 1659, -262, 1808, -152, 1770, -90, 1845, -156, 1908, -144, 1943, -16, 1847, -31, 1819, -61, 1835, -138, 1735, -242, 1776, -293, 1646, -127, 1570, -84, 1507, 67, 1759, 44, 1776, 54, 1803, 83, 1786, 102, 1813, 155, 1786, 142, 1760, 115, 1767, -59, 1470, 55, 1418, 227, 1694, 195, 1720, 209, 1748, 262, 1719)
+
+[node name="CollisionPolygon2D6" type="CollisionPolygon2D" parent="NavigationRegion2D/StaticBody2D"]
+polygon = PackedVector2Array(-384, 1907, -367, 1887, -327, 1968, -239, 1947, -232, 1961, -345, 2015)
+
+[node name="CollisionPolygon2D7" type="CollisionPolygon2D" parent="NavigationRegion2D/StaticBody2D"]
+polygon = PackedVector2Array(-463, 1559, -449, 1544, -456, 1500, -335, 1468, -337, 1440, -491, 1480)
+
+[node name="Character" parent="." instance=ExtResource("2_kmery")]
+position = Vector2(196, 176)
+
+[node name="Camera2D" type="Camera2D" parent="Character"]
+position = Vector2(58, 4)
+
+[node name="LineEdit" type="LineEdit" parent="Character"]
+offset_left = -312.0
+offset_top = 292.0
+offset_right = -119.0
+offset_bottom = 323.0
+expand_to_text_length = true
+script = ExtResource("3_e4rlp")
+metadata/_edit_use_anchors_ = true
+
+[node name="room" type="Marker2D" parent="."]
+position = Vector2(576, 1241)
+gizmo_extents = 43.0
+
+[node name="home" type="Marker2D" parent="."]
+position = Vector2(100, 1611)
+
+[connection signal="text_submitted" from="Character/LineEdit" to="Character/LineEdit" method="_on_text_submitted"]

@@ -1,0 +1,61 @@
+[gd_scene load_steps=4 format=3 uid="uid://ct7veakwiei3h"]
+
+[ext_resource type="Script" path="res://character2.gd" id="1_kcvvf"]
+[ext_resource type="Texture2D" uid="uid://b0wokaenwu7pj" path="res://character.png" id="1_rmg12"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_20ukx"]
+radius = 8.0
+height = 22.0
+
+[node name="Character" type="CharacterBody2D"]
+collision_layer = 17
+script = ExtResource("1_kcvvf")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -3)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("1_rmg12")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -3)
+shape = SubResource("CapsuleShape2D_20ukx")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+path_desired_distance = 2.0
+target_desired_distance = 20.0
+avoidance_enabled = true
+debug_enabled = true
+
+[node name="VisionArea" type="Area2D" parent="."]
+position = Vector2(0, 2)
+collision_layer = 8
+collision_mask = 16
+
+[node name="visionpolygonref" type="Polygon2D" parent="VisionArea"]
+visible = false
+scale = Vector2(1.01246, 1.61331)
+color = Color(0.345098, 1, 1, 0.129412)
+polygon = PackedVector2Array(15.8031, -1.23969, 0, 28.5128, 371.373, 117.77, 371.373, 78.1003, 371.373, 38.4303, 371.373, -1.23969, 371.373, -40.9097, 371.373, -80.5797, 371.373, -120.25, 0, -30.9922)
+
+[node name="visionpolygon" type="Polygon2D" parent="VisionArea"]
+scale = Vector2(1, 1.437)
+color = Color(0.345098, 1, 1, 0.129412)
+antialiased = true
+invert_border = 24.8
+polygon = PackedVector2Array(16, -1.39179, 0, 32.0111, 376, 132.22, 376, 87.6827, 376, 43.1454, 376, -1.39179, 376, -45.929, 376, -90.4662, 376, -135.003, 0, -34.7947)
+
+[node name="collisionvision" type="CollisionPolygon2D" parent="VisionArea"]
+polygon = PackedVector2Array(16, -2, 0, 46, 376, 190, 376, 126, 376, 62, 376, -2, 376, -66, 376, -130, 376, -194, 0, -50)
+
+[node name="VisionTimer" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true
+
+[node name="ReminderTimer" type="Timer" parent="."]
+autostart = true
+
+[node name="HTTPRequest" type="HTTPRequest" parent="."]
+
+[connection signal="timeout" from="VisionTimer" to="." method="_on_vision_timer_timeout"]
+[connection signal="timeout" from="ReminderTimer" to="." method="_on_reminder_timer_timeout"]
+[connection signal="request_completed" from="HTTPRequest" to="." method="_on_http_request_request_completed"]
