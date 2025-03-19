@@ -1,0 +1,17 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://dw6b0r5fxwqok"
+
+[deps]
+
+files=["res://mypeople2.port.translation", "res://mypeople2.name.translation", "res://mypeople2.speed.translation", "res://mypeople2.money.translation", "res://mypeople2.hunger.translation", "res://mypeople2.sleep.translation", "res://mypeople2.sickness.translation", "res://mypeople2.home.translation", "res://mypeople2.job.translation", "res://mypeople2.hobbies.translation", "res://mypeople2.friends.translation", "res://mypeople2.family.translation", "res://mypeople2.listofplaces.translation", "res://mypeople2.schedule.translation", "res://mypeople2.myitems.translation", "res://mypeople2.nameinsimulator.translation", "res://mypeople2.IDENTITY.translation", "res://mypeople2.PEOPLE.translation", "res://mypeople2.Schedule.translation"]
+
+source_file="res://mypeople2.csv"
+dest_files=["res://mypeople2.port.translation", "res://mypeople2.name.translation", "res://mypeople2.speed.translation", "res://mypeople2.money.translation", "res://mypeople2.hunger.translation", "res://mypeople2.sleep.translation", "res://mypeople2.sickness.translation", "res://mypeople2.home.translation", "res://mypeople2.job.translation", "res://mypeople2.hobbies.translation", "res://mypeople2.friends.translation", "res://mypeople2.family.translation", "res://mypeople2.listofplaces.translation", "res://mypeople2.schedule.translation", "res://mypeople2.myitems.translation", "res://mypeople2.nameinsimulator.translation", "res://mypeople2.IDENTITY.translation", "res://mypeople2.PEOPLE.translation", "res://mypeople2.Schedule.translation"]
+
+[params]
+
+compress=true
+delimiter=0

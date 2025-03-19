@@ -1,4 +1,5 @@
 extends CharacterBody2D
+@onready var llm = $LLM
 
 var headers = ["Content-Type: application/json"]
 @onready var httpreq = $HTTPRequest
@@ -59,9 +60,11 @@ func _ready():
 	# These values need to be adjusted for the actor's speed
 	# and the navigation layout.
 	#httpreq.request(url)
+
 	
 	#var parent_node = get_parent()
 	modify_vision_area()
+	var mytime=get_parent().globaltime
 	var objectsnode = $/root/Node2D/objects
 	for object in objectsnode.get_children():
 		objeks[object.name] = object.position
@@ -76,10 +79,10 @@ func _ready():
 	var wake = {'agent_id':agentid,'heartbeat': 60,'post_type': 'wakeup','home': 'homeB','job':'companyB', 'money':2010}
 	var wakeup = JSON.stringify(wake)
 	#httpreq.request(url, headers, HTTPClient.METHOD_POST, wakeup)
-	if len(schedule)>0:
-		setnexttimer(schedule)
-	else:
-		$ReminderTimer.wait_time=2
+	#if len(schedule)>0:
+		#setnexttimer(schedule)
+	#else:
+		#$ReminderTimer.wait_time=2
 		
 func _unhandled_input(event):
 	if not event.is_action_pressed("click"):
@@ -282,6 +285,7 @@ func _on_vision_timer_timeout():
 	var overlaps = $VisionArea.get_overlapping_areas()
 	var overlappeople= $VisionArea.get_overlapping_bodies()
 	var dic_idx=0
+	var mytime=get_parent().globaltime
 	# modify polygon
 	if len(overlaps) > 0:
 		print(overlaps)
@@ -346,7 +350,7 @@ func _on_vision_timer_timeout():
 				
 
 		var visarray_string = ", ".join(visarray)
-		beat = {'agent_id':agentid,'heartbeat': 60,'post_type': 'UC','you_see':visarray_string,"actions":  JSON.stringify(actionsdic), "position_name":place}
+		beat = {'agent_id':agentid,'heartbeat': 60 ,'post_type': 'UC','you_see':visarray_string,"actions":  JSON.stringify(actionsdic), "position_name":place}
 		if len(pushtoheartbeat)>0:
 			buf= pushtoheartbeat.pop_front()
 			for k in buf:
@@ -358,7 +362,7 @@ func _on_vision_timer_timeout():
 	
 func somebody_talkingto_you(talkingagentid,msg):
 	
-	
+	var mytime=get_parent().globaltime
 	var headers = ["Content-Type: application/json"]
 	var situation="Character"+str(talkingagentid)+" is talking to you"
 	var talk = {'agent_id':agentid,'heartbeat': 60,'post_type':'comm' ,'situation':situation,'you_hear':msg}
@@ -387,6 +391,6 @@ func setnexttimer(schedule):
 	return schedule[candidatidx]
 
 func _on_reminder_timer_timeout():
-	reminderbuffer= setnexttimer(schedule) # Replace with function body.
+	#reminderbuffer= setnexttimer(schedule) # Replace with function body.
 	print(reminderbuffer)
 	reminderringing=1

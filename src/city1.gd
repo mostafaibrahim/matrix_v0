@@ -4,10 +4,106 @@ extends Node
 const PORT = 9080
 # Our WebSocketServer instance
 var crowd = {}
-var globaltime = 0
-
+@onready var globaltime = 360 #make increments of 60
+var hours =4
+var minutes =50
+var am_pm ="am"
+var onetimesaved=false
+var onetimesaved2=false
 var json = JSON.new()
+@onready var holdAPI_1=false
+# Dictionary to track how many times each agent has been denied
+var denial_counts = {}
+# Queue of waiting agents sorted by denial count
+var waiting_queue = []
+var holdingagent
+var onetime=false
+func holdapi_request(agentid):
+	if not agentid in denial_counts:
+		denial_counts[agentid] = 0
+	if agentid==holdingagent and onetime==false:
+		onetime=true
+		return true
+	if holdAPI_1==false:
+		#holdingagent=agentid
+		#holdAPI_1=true
+		#denial_counts[agentid] = 0
+		#OS.delay_msec(10000)
+		grant_access(agentid)
+		return true
+		
+	else:
+		# Add to waiting queue if not already waiting
+		if not agentid in waiting_queue:
+			waiting_queue.append(agentid)
+			# Sort queue by denial count (highest first)
+			waiting_queue.sort_custom(Callable(self, "sort_by_denial_count"))
+		
+		# Increment denial count
+		denial_counts[agentid] += 1
+		return false
 
+
+# Custom sort function for the waiting queue
+func sort_by_denial_count(a, b):
+	return denial_counts[a] > denial_counts[b]
+func grant_access(agentid):
+	holdingagent = agentid
+	holdAPI_1 = true
+	# Reset denial count when access is granted
+	denial_counts[agentid] = 0
+	OS.delay_msec(10000)
+# Helper function to get queue status (for debugging)
+func get_queue_status():
+	var status = "Current holder: " + str(holdingagent) + "\n"
+	status += "Waiting queue: " + str(waiting_queue) + "\n"
+	status += "Denial counts: " + str(denial_counts)
+	print("Queue Status:   "+ status)
+	return status
+func unholdapi_request(agentid):
+	if holdAPI_1==true and holdingagent==agentid:
+		onetime=false
+		holdAPI_1 = false
+		holdingagent = null
+		OS.delay_msec(10000)
+		#get_tree().paused = false
+		if waiting_queue.size() > 0:
+			var next_agent = waiting_queue.pop_front()
+			grant_access(next_agent)
+	
+		if globaltime>900 and onetimesaved==false:
+			$Character1.POS=$Character1.global_position
+			$Character2.POS=$Character2.global_position
+			$Character3.POS=$Character3.global_position
+			create_global_checkpoint("fthcheckPT")
+			$Character1.create_checkpoint("fthcheckPT")
+			$Character2.create_checkpoint("fthcheckPT")
+			$Character3.create_checkpoint("fthcheckPT")
+			$L2assistant.create_checkpoint("fthcheckPT")
+			$L3assistant.create_checkpoint("fthcheckPT")
+			onetimesaved=true
+			"""
+		if globaltime>7000 and onetimesaved2==false:
+			$Character1.POS=$Character1.global_position
+			$Character2.POS=$Character2.global_position
+			$Character3.POS=$Character3.global_position
+			create_global_checkpoint("fivthcheckPT")
+			$Character1.create_checkpoint("fivthcheckPT")
+			$Character2.create_checkpoint("fivthcheckPT")
+			$Character3.create_checkpoint("fivthcheckPT")
+			onetimesaved2=true
+		if globaltime>900 and onetimesaved2==false:
+			$Character1.POS=$Character1.global_position
+			$Character2.POS=$Character2.global_position
+			$Character3.POS=$Character3.global_position
+			create_global_checkpoint("sixthcheckPT")
+			$Character1.create_checkpoint("sixthcheckPT")
+			$Character2.create_checkpoint("sixthcheckPT")
+			$Character3.create_checkpoint("sixthcheckPT")
+			onetimesaved2=true """
+		
+		
+		
 
 func _ready():
 	#$Player1.init_network(12345)  # Assign unique ports to each player
@@ -16,7 +112,7 @@ func _ready():
 	var agents=["Character1","Character2","Character3"]
 	var bagofactions= {"go to":"$place","sleep on":"$bed","eat":"$food","say to":"$agent $scentence","buy":"$itemlist" ,\
 	"cook":"dinner","order":"$itemlist","talk with":"$agent","operate":"$tool"}
-	$Character1/Camera2D/Label.text=str(globaltime)
+	#$Character1/Camera2D/Label.text=str(globaltime)
 	import_data()
 	print(crowd.size())
 	#print(crowd[0]["hunger"])
@@ -45,7 +141,8 @@ func _ready():
 		get_node(agent).schedule = parse_list_(crowd[inc][14])
 		get_node(agent).myitems = parse_dic_(crowd[inc][15])
 		get_node(agent).bagofactions = bagofactions
-		
+	
+	
 func parse_list_(line):
 	var list=[]
 	var parts = line.split(",")
@@ -168,9 +265,26 @@ func streetcount(node):
 
 func _on_cityclock_timeout():
 	globaltime+=30
+	hours = floor(globaltime / 60)
+	minutes = int(globaltime) % 60
+	if hours<12:
+		am_pm="am"
+	elif hours==12:
+		am_pm="pm"
+	else:
+		am_pm="pm"
+		hours=hours-12
+		
 	if globaltime == 1440:
 		globaltime=0
-	$Character1/Camera2D/Label.text=str(globaltime)
+		
+	
+		
+	
+		
+	
+	$Camera2D/Label.text = "%02d:%02d" % [hours, minutes]
+	#$Character1/Camera2D/Label.text=str(globaltime)
 
 func _on_resedential_areas_body_entered(body):
 	resedentialcount()
@@ -180,3 +294,159 @@ func _on_company_1_body_entered(body):
 	companycount($places/company1)
 func _on_street_body_entered(body):
 	streetcount($places/street)
+	
+func delay(tau):
+	print("delaycanceled")
+	#get_tree().paused = true
+	#await get_tree().create_timer(tau).timeout 
+	#get_tree().paused = false
+	
+	
+## Creates a checkpoint of the current global state with a custom name.
+## Returns true if successful, false otherwise.
+##
+## [param checkpoint_name] The name of the checkpoint.
+func create_global_checkpoint(checkpoint_name: String) -> bool:
+	var checkpoint_path = "res://savedcheckpoints/global_" + checkpoint_name + ".save"
+	
+	# Create the save data dictionary
+	var save_data = {
+		# Time-related variables
+		"globaltime": globaltime,
+		"hours": hours,
+		"minutes": minutes,
+		"am_pm": am_pm,
+		
+		# Agent holding states
+		"holdAPI_1": holdAPI_1,
+		"holdingagent": holdingagent,
+		
+		# Add timestamp for reference
+		"timestamp": Time.get_unix_time_from_system()
+	}
+	
+	# Convert to JSON string
+	var json_string = JSON.stringify(save_data)
+	
+	# Save to file
+	var file = FileAccess.open(checkpoint_path, FileAccess.WRITE)
+	if file == null:
+		push_error("Failed to open file for saving: " + checkpoint_path)
+		return false
+	
+	file.store_string(json_string)
+	print("Global state checkpoint created: ", checkpoint_name)
+	return true
+
+## Loads a specific global checkpoint by name.
+## Returns true if successful, false otherwise.
+##
+## [param checkpoint_name] The name of the checkpoint to load.
+func load_global_checkpoint(checkpoint_name: String) -> bool:
+	var checkpoint_path = "res://savedcheckpoints/global_" + checkpoint_name + ".save"
+	
+	# Check if file exists
+	if not FileAccess.file_exists(checkpoint_path):
+		push_error("Global checkpoint file does not exist: " + checkpoint_path)
+		return false
+	
+	# Read file
+	var file = FileAccess.open(checkpoint_path, FileAccess.READ)
+	if file == null:
+		push_error("Failed to open checkpoint file for loading: " + checkpoint_path)
+		return false
+	
+	var json_string = file.get_as_text()
+	
+	# Parse JSON
+	var json = JSON.new()
+	var parse_result = json.parse(json_string)
+	if parse_result != OK:
+		push_error("Failed to parse checkpoint file")
+		return false
+	
+	var save_data = json.get_data()
+	
+	# Restore state
+	globaltime = save_data.get("globaltime", globaltime)
+	hours = save_data.get("hours", hours)
+	minutes = save_data.get("minutes", float(minutes))
+	am_pm = save_data.get("am_pm", am_pm)
+	holdAPI_1 = save_data.get("holdAPI_1", holdAPI_1)
+	holdingagent = save_data.get("holdingagent", holdingagent)
+	
+	print("Global checkpoint loaded: ", checkpoint_name)
+	return true
+
+## Lists all available global checkpoints.
+## Returns an array of checkpoint names.
+func list_global_checkpoints() -> Array:
+	var checkpoints = []
+	var dir = DirAccess.open("user://")
+	if dir:
+		dir.list_dir_begin()
+		var file_name = dir.get_next()
+		while file_name != "":
+			if file_name.begins_with("global_") and file_name.ends_with(".save"):
+				checkpoints.append(file_name.trim_prefix("global_").trim_suffix(".save"))
+			file_name = dir.get_next()
+	return checkpoints
+
+## Deletes a global checkpoint by name.
+## Returns true if successful, false otherwise.
+##
+## [param checkpoint_name] The name of the checkpoint to delete.
+func delete_global_checkpoint(checkpoint_name: String) -> bool:
+	var checkpoint_path = "user://global_" + checkpoint_name + ".save"
+	if FileAccess.file_exists(checkpoint_path):
+		var err = DirAccess.remove_absolute(checkpoint_path)
+		if err == OK:
+			print("Global checkpoint deleted: ", checkpoint_name)
+			return true
+		else:
+			push_error("Failed to delete global checkpoint: " + checkpoint_name)
+	return false
+
+## Creates a checkpoint with the current time as name.
+## Returns the checkpoint name if successful, empty string otherwise.
+func quick_save() -> String:
+	var timestamp = Time.get_datetime_string_from_system().replace(":", "-")
+	var checkpoint_name = "quicksave_" + timestamp
+	if create_global_checkpoint(checkpoint_name):
+		return checkpoint_name
+	return ""
+
+## Gets information about a specific checkpoint.
+## Returns a dictionary with checkpoint info or an empty dictionary if checkpoint doesn't exist.
+func get_checkpoint_info(checkpoint_name: String) -> Dictionary:
+	var checkpoint_path = "user://global_" + checkpoint_name + ".save"
+	
+	if not FileAccess.file_exists(checkpoint_path):
+		return {}
+	
+	var file = FileAccess.open(checkpoint_path, FileAccess.READ)
+	if file == null:
+		return {}
+	
+	var json = JSON.new()
+	var parse_result = json.parse(file.get_as_text())
+	if parse_result != OK:
+		return {}
+	
+	var save_data = json.get_data()
+	
+	return {
+		"name": checkpoint_name,
+		"time": str(save_data.hours) + ":" + str(save_data.minutes) + " " + save_data.am_pm,
+		"globaltime": save_data.globaltime,
+		"created": Time.get_datetime_string_from_unix_time(save_data.timestamp),
+		"has_held_agent": save_data.holdingagent != null
+	}
+
+
+func _on_loadtimer_timeout():
+	pass
+	#load_global_checkpoint("fivthcheckPT")
+	#$Character1.load_checkpoint("fivthcheckPT")
+	#$Character2.load_checkpoint("fivthcheckPT")
+	#$Character3.load_checkpoint("fivthcheckPT")# Replace with function body.

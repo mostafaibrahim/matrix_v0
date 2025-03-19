@@ -11,8 +11,25 @@ config_version=5
 [application]
 
 config/name="matrixv0"
+run/main_scene="res://city1.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
+
+[display]
+
+window/size/viewport_width=3000
+window/size/viewport_height=1500
+window/stretch/scale=1.5
+
+[editor]
+
+movie_writer/mjpeg_quality=1.0
+movie_writer/movie_file="D:/godotwork/matrix_v0/src/test1.avi"
+movie_writer/fps=25
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/godot_llm_framework/plugin.cfg")
 
 [rendering]
 

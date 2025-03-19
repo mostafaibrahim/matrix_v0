@@ -1,0 +1,17 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://cybe40qs3dv84"
+
+[deps]
+
+files=["res://mypeople (version 1).xlsb.port.translation", "res://mypeople (version 1).xlsb.name.translation", "res://mypeople (version 1).xlsb.speed.translation", "res://mypeople (version 1).xlsb.money.translation", "res://mypeople (version 1).xlsb.hunger.translation", "res://mypeople (version 1).xlsb.sleep.translation", "res://mypeople (version 1).xlsb.sickness.translation", "res://mypeople (version 1).xlsb.home.translation", "res://mypeople (version 1).xlsb.job.translation", "res://mypeople (version 1).xlsb.hobbies.translation", "res://mypeople (version 1).xlsb.friends.translation", "res://mypeople (version 1).xlsb.family.translation", "res://mypeople (version 1).xlsb.listofplaces.translation", "res://mypeople (version 1).xlsb.schedule.translation", "res://mypeople (version 1).xlsb.myitems.translation", "res://mypeople (version 1).xlsb.nameinsimulator.translation", "res://mypeople (version 1).xlsb.IDENTITY.translation", "res://mypeople (version 1).xlsb.PEOPLE.translation", "res://mypeople (version 1).xlsb.Schedule.translation"]
+
+source_file="res://mypeople (version 1).xlsb.csv"
+dest_files=["res://mypeople (version 1).xlsb.port.translation", "res://mypeople (version 1).xlsb.name.translation", "res://mypeople (version 1).xlsb.speed.translation", "res://mypeople (version 1).xlsb.money.translation", "res://mypeople (version 1).xlsb.hunger.translation", "res://mypeople (version 1).xlsb.sleep.translation", "res://mypeople (version 1).xlsb.sickness.translation", "res://mypeople (version 1).xlsb.home.translation", "res://mypeople (version 1).xlsb.job.translation", "res://mypeople (version 1).xlsb.hobbies.translation", "res://mypeople (version 1).xlsb.friends.translation", "res://mypeople (version 1).xlsb.family.translation", "res://mypeople (version 1).xlsb.listofplaces.translation", "res://mypeople (version 1).xlsb.schedule.translation", "res://mypeople (version 1).xlsb.myitems.translation", "res://mypeople (version 1).xlsb.nameinsimulator.translation", "res://mypeople (version 1).xlsb.IDENTITY.translation", "res://mypeople (version 1).xlsb.PEOPLE.translation", "res://mypeople (version 1).xlsb.Schedule.translation"]
+
+[params]
+
+compress=true
+delimiter=0
