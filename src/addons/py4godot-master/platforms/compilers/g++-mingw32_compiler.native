@@ -1,5 +1,0 @@
-[binaries]
-cpp = ['i686-w64-mingw32-g++']
-
-[properties]
-is_mingw = true
