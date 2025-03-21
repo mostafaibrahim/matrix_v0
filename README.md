@@ -17,6 +17,12 @@ matrix_v0 is a foundational framework for building complex simulations of AI age
 The city currently has resedential areas and businesses within its layout. More should be mentioned in the Wiki documentaion. 
 ## AI Agents Interface and System Overview
 
+<p align="center">
+  <img src="src/githubintro.png" width="1000">
+</p>
+<p align="center"><em>Figure 2: Overview of the system's LLM Agents' integration.</em></p>
+
+
 LLM nodes are created within the 2DCharacters corresponding to the human agents. ...
 ### Core Features
 
@@ -37,11 +43,6 @@ matrix_v0 is built with a modular design featuring:
 - **Message Thread Memory**: Maintains context with customizable summary capabilities
 - **Action Processing System**: Translates agent decisions into in-simulation behaviors
 - **Perception Systems**: Configurable sight and hearing models for realistic interactions
-
-<p align="center">
-  <img src="src/githubintro.png" width="1000">
-</p>
-<p align="center"><em>Figure 2: Overview of the system's LLM Agents' integration.</em></p>
 
 
 
@@ -99,7 +100,8 @@ We are continuously expanding matrix_v0 with plans to add:
 
 ## Contributing
 
-We welcome contributions to expand the capabilities of matrix_v0. Please see CONTRIBUTING.md for details on our code of conduct and the process for submitting pull requests.
+We welcome contributions to expand the capabilities of matrix_v0. Help us add more details by asking questions in Discussions https://github.com/mostafaibrahim/matrix_v0/discussions
+
 
 ## Acknowledgments
 
