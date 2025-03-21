@@ -14,19 +14,11 @@ matrix_v0 is a foundational framework for building complex simulations of AI age
 </p>
 <p align="center"><em>Figure 1: Example city layout that can be created using the simulation framework.</em></p>
 
-## GitHub Interface and System Overview
-<p align="center">
-  <img src="src/githubintro.png" width="1000">
-</p>
-<p align="center"><em>Figure 2: Overview of the system's GitHub integration.</em></p>
+The city currently has resedential areas and businesses within its layout. More should be mentioned in the Wiki documentaion. 
+## AI Agents Interface and System Overview
 
-## Hierarchical Structure of Agents
-<p align="center">
-  <img src="src/Hierarch_1_GH.png" width="500">
-</p>
-<p align="center"><em>Figure 3: Example hierarchical agent-based structure that can be implemented.</em></p>
-
-## Core Features
+LLM nodes are created within the 2DCharacters corresponding to the human agents. ...
+### Core Features
 
 - **Flexible Agent Hierarchy**: Define and implement customizable agent structures with multiple levels
 - **Game Engine Integration**: Built with the Godot game engine for realistic environment simulation
@@ -35,8 +27,7 @@ matrix_v0 is a foundational framework for building complex simulations of AI age
 - **Perception Simulation**: Model agent perception capabilities like sight and hearing
 - **Scaling Capabilities**: Design simulations from small scenarios to complex city-wide interactions
 - **Data Collection Tools**: Built-in logging and analysis for agent interactions and behaviors
-
-## Framework Architecture
+### Framework Architecture
 
 matrix_v0 is built with a modular design featuring:
 
@@ -47,9 +38,21 @@ matrix_v0 is built with a modular design featuring:
 - **Action Processing System**: Translates agent decisions into in-simulation behaviors
 - **Perception Systems**: Configurable sight and hearing models for realistic interactions
 
+<p align="center">
+  <img src="src/githubintro.png" width="1000">
+</p>
+<p align="center"><em>Figure 2: Overview of the system's LLM Agents' integration.</em></p>
+
+
+
 ## Example Use Case: The Subtle Hand of AI
 
 One scenario implemented using this framework examines how interconnected AI systems might coordinate and influence human actions in urban environments. This research scenario demonstrates:
+
+<p align="center">
+  <img src="src/Hierarch_1_GH.png" width="500">
+</p>
+<p align="center"><em>Figure 3: Example hierarchical agent-based structure that can be implemented.</em></p>
 
 - Hierarchical AI systems with personal assistants, mid-level managers, and city-level coordination
 - Patterns of surveillance and behavioral control emerging from routine interactions
