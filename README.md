@@ -16,7 +16,27 @@ matrix_v0 is a foundational framework for building complex simulations of AI age
 
 The city currently has resedential areas and businesses within its layout. More should be mentioned in the Wiki documentaion. 
 
-![Description of the GIF](documentation/movementDemo-optimize_2.gif)
+<table>
+  <tr>
+    <td style="width: 60%; vertical-align: top;">
+      <p>
+        This is your paragraph text on the left side. You can write multiple lines here.
+        You can describe what the GIF shows, explain functionality, or write documentation.
+      </p>
+      <p>
+        Add more explanation or bullet points as needed:
+        <ul>
+          <li>Feature A</li>
+          <li>Feature B</li>
+        </ul>
+      </p>
+    </td>
+    <td style="width: 40%; text-align: right;">
+      <img src="documentation/movementDemo-optimize_2.gif" width="300"/>
+      <p><em>Figure X: Caption for the GIF.</em></p>
+    </td>
+  </tr>
+</table>
 
 ## AI Agents Interface and System Overview
 
