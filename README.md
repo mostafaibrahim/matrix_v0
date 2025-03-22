@@ -32,7 +32,7 @@ The city currently has resedential areas and businesses within its layout. More 
       </p>
     </td>
     <td style="width: 60%; text-align: right;">
-      <img src="documentation/movementDemo-optimize_2.gif" width="300"/>
+      <img src="documentation/movementDemo-optimize_2.gif" width="500"/>
       <p><em>Figure X: Caption for the GIF.</em></p>
     </td>
   </tr>
