@@ -15,6 +15,9 @@ matrix_v0 is a foundational framework for building complex simulations of AI age
 <p align="center"><em>Figure 1: Example city layout that can be created using the simulation framework.</em></p>
 
 The city currently has resedential areas and businesses within its layout. More should be mentioned in the Wiki documentaion. 
+
+![Description of the GIF](documentation/movementDemo-optimize_2.gif)
+
 ## AI Agents Interface and System Overview
 
 <p align="center">
