@@ -18,7 +18,7 @@ The city currently has resedential areas and businesses within its layout. More 
 
 <table>
   <tr>
-    <td style="width: 60%; vertical-align: top;">
+    <td style="width: 40%; vertical-align: top;">
       <p>
         This is your paragraph text on the left side. You can write multiple lines here.
         You can describe what the GIF shows, explain functionality, or write documentation.
@@ -31,7 +31,7 @@ The city currently has resedential areas and businesses within its layout. More 
         </ul>
       </p>
     </td>
-    <td style="width: 40%; text-align: right;">
+    <td style="width: 60%; text-align: right;">
       <img src="documentation/movementDemo-optimize_2.gif" width="300"/>
       <p><em>Figure X: Caption for the GIF.</em></p>
     </td>
