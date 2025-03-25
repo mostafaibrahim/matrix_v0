@@ -20,8 +20,8 @@ The city currently has resedential areas and businesses within its layout. More 
   <tr>
     <td style="width: 40%; vertical-align: top;">
       <p>
-	  ### Agents navigation and perciption 
-        Godot provides a 2DCharacters node to perform the navigation tasks. We add to it a sight cone and hearing circle. Anything falls within that cone the character's LLM is informed of seeing it. Same as for the hearing circle. The Gif on the right shows a snapshot of the movement of the agents with the sight cone infront of them. 
+	  ### Agents navigation and perception 
+        Godot provides a 2DCharacters node to perform the navigation tasks. We add to it a sight cone and hearing circle. Anything falling within that cone is informed of seeing by the character's LLM. The same is true for the hearing circle. The GIF on the right shows a snapshot of the agents' movement with the sight cone in front of them.
       </p>
       <p>
         More deatils:
