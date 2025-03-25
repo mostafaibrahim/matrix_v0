@@ -20,11 +20,11 @@ The city currently has resedential areas and businesses within its layout. More 
   <tr>
     <td style="width: 40%; vertical-align: top;">
       <p>
-        This is your paragraph text on the left side. You can write multiple lines here.
-        You can describe what the GIF shows, explain functionality, or write documentation.
+	  ### Agents navigation and perciption 
+        Godot provides a 2DCharacters node to perform the navigation tasks. We add to it a sight cone and hearing circle. Anything falls within that cone the character's LLM is informed of seeing it. Same as for the hearing circle. The Gif on the right shows a snapshot of the movement of the agents with the sight cone infront of them. 
       </p>
       <p>
-        Add more explanation or bullet points as needed:
+        More deatils:
         <ul>
           <li>Feature A</li>
           <li>Feature B</li>
@@ -32,7 +32,7 @@ The city currently has resedential areas and businesses within its layout. More 
       </p>
     </td>
     <td style="width: 60%; text-align: right;">
-      <img src="documentation/movementDemo-optimize_2.gif" width="300"/>
+      <img src="documentation/movementDemo-optimize_2.gif" width="500"/>
       <p><em>Figure X: Caption for the GIF.</em></p>
     </td>
   </tr>
